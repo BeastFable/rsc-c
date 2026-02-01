@@ -1,5 +1,9 @@
 #include "surface.h"
 
+#ifdef RENDER_GL
+#include "surface-gl.c"
+#endif
+
 #ifdef USE_LOCOLOUR
 #include "locolour.h"
 #endif

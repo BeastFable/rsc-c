@@ -6,51 +6,52 @@ Isaac Eggsampler. compatible with [rscsundae](https://git.sr.ht/~stormy/rscsunda
 [openrsc](https://rsc.vet/) and 2003scape.
 
 prominent new features include:
-* native ports for 3ds, switch, wii, web browser and desktop
-* opengl/webgl renderer with customizable
-[field of view](https://en.wikipedia.org/wiki/Field_of_view)
-* dynamic resizable mode with interface scaling and new minimum resolution of
-320x240
-* 3D model ground items based on runescape 2 beta models
-* [runescape classic wiki](https://classic.runescape.wiki/) button
-* bank interface with scrollbar and search
-* [...and more! ](https://github.com/2003scape/rsc-c#options)
+
+- native ports for 3ds, switch, wii, web browser and desktop
+- opengl/webgl renderer with customizable
+  [field of view](https://en.wikipedia.org/wiki/Field_of_view)
+- dynamic resizable mode with interface scaling and new minimum resolution of
+  320x240
+- 3D model ground items based on runescape 2 beta models
+- [runescape classic wiki](https://classic.runescape.wiki/) button
+- bank interface with scrollbar and search
+- [...and more! ](https://github.com/2003scape/rsc-c#options)
 
 ### controls (3ds):
 
-* d-pad/circle pad to control camera
-* touch screen for mouse input
-* hold L whilst tapping touch screen for right click
-* start to toggle on-screen keyboard
-* select to toggle top screen's power
-* A, B, X, Y, R to select option menus (context dependent)
+- d-pad/circle pad to control camera
+- touch screen for mouse input
+- hold L whilst tapping touch screen for right click
+- start to toggle on-screen keyboard
+- select to toggle top screen's power
+- A, B, X, Y, R to select option menus (context dependent)
 
 ### controls (wii):
 
-* d-pad to control camera
-* B for right click
-* A for left click
-* \- to toggle on-screen keyboard
-* B for backspace whilst keyboard is open
-* \+ to press enter key
-* 1 to toggle F1/interlace mode
+- d-pad to control camera
+- B for right click
+- A for left click
+- \- to toggle on-screen keyboard
+- B for backspace whilst keyboard is open
+- \+ to press enter key
+- 1 to toggle F1/interlace mode
 
 a USB keyboard and mouse can also be used.
 
 ### controls (switch):
 
-* d-pad/left stick to control camera
-* A for Enter
-* B for Backspace
-* X for Tab
-* Y for Home
-* L for Escape
-* R to toggle fps display
-* ZR is reserved for future use
-* touch screen for mouse input
-* hold ZL whilst tapping touch screen for right click
-* \+ to toggle on-screen keyboard
-* \- to toggle F1/interlace mode
+- d-pad/left stick to control camera
+- A for Enter
+- B for Backspace
+- X for Tab
+- Y for Home
+- L for Escape
+- R to toggle fps display
+- ZR is reserved for future use
+- touch screen for mouse input
+- hold ZL whilst tapping touch screen for right click
+- \+ to toggle on-screen keyboard
+- \- to toggle F1/interlace mode
 
 ## build (linux)
 
@@ -69,25 +70,26 @@ distribute with `./cache` directory.
 ## build (windows)
 
 1. Make sure virtualization is enabled on your machine by doing the following:
-    1. Enable virtualization in the BIOS of your motherboard. 
-    1. Make sure **Virtual Machine Platform** and **Windows Hypervisor Platform** are both turned on in Windows Features.
-    1. Open terminal or command prompt as an administrator and run `bcdedit /set hypervisorlaunchtype auto`.
+   1. Enable virtualization in the BIOS of your motherboard.
+   1. Make sure **Virtual Machine Platform** and **Windows Hypervisor Platform** are both turned on in Windows Features.
+   1. Open terminal or command prompt as an administrator and run `bcdedit /set hypervisorlaunchtype auto`.
 2. Get the Ubuntu app from the [Windows Store](https://apps.microsoft.com/detail/9pdxgncfsczv?hl=en-US&gl=US).
 3. Open the Ubuntu app. A terminal should appear.
 4. Run the following commands within the Ubuntu terminal:
-    ```
-    sudo apt update
-    sudo apt install mingw-w64 wine libsdl2-image-dev libglew-dev libgl-dev
-    sudo apt install -y libssl-dev pkg-config
-    sudo apt install --reinstall build-essential
 
-    // It is recommended to copy the rsc-c directory to your ubuntu box:
-    cp -r /mnt/c/path/to/rsc-c ~/
-    cd ~/rsc-c
+   ```
+   sudo apt update
+   sudo apt install mingw-w64 wine libsdl2-image-dev libglew-dev libgl-dev
+   sudo apt install -y libssl-dev pkg-config
+   sudo apt install --reinstall build-essential
 
-    make // This builds the RSC-C client
-    ./mudclient // This runs the RSC-C client. (use `wine ./mudclient` to test locally)
-    ```
+   // It is recommended to copy the rsc-c directory to your ubuntu box:
+   cp -r /mnt/c/path/to/rsc-c ~/
+   cd ~/rsc-c
+
+   make // This builds the RSC-C client
+   ./mudclient // This runs the RSC-C client. (use `wine ./mudclient` to test locally)
+   ```
 
 distribute with `./SDL2.dll`, `./glew32.dll` and `./cache` directory.
 
@@ -108,6 +110,7 @@ install mingw to C:\mingw
 inside C:\mingw\bin copy the mingw32-make.exe as make.exe
 
 edit autoexec.bat on drive C and add
+
 ```
 PATH=C:\mingw\bin
 ```
@@ -136,8 +139,10 @@ on windows 95 might need to install ws2setup.exe, 401comupd.exe, and find a copy
 
 ## build (web)
 
-install and activate
-[emscripten emsdk](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended).
+Install & activate the
+[emscripten emsdk](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended) using the `install latest` and active latest` commands.
+
+If you are using a Mac to install Emscripten, prefix the `install` and `activate` commands with `./emsdk` while that directory is checked out.
 
     $ make -f Makefile.emscripten
     $ python3 -m http.server 1337 # @ http://localhost:1337/mudclient.html
@@ -199,18 +204,18 @@ see `./build-switch.sh` for building for Switch.
 ## usage
 
 arguments:
-* `[members]`
-    * pass any value other than "members" to load a free to play configuration
-* `[ip address]`
-    * an IPv4 address where the RSC177/204 compatible server is hosted
-* `[port]`
-    * network port number (e.g. 43594)
-* `[RSA exponent]`
-* `[RSA modulus]`
-    * these two are used together to encrypt passwords, unique to each server.
+
+- `[members]`
+  - pass any value other than "members" to load a free to play configuration
+- `[ip address]`
+  - an IPv4 address where the RSC177/204 compatible server is hosted
+- `[port]`
+  - network port number (e.g. 43594)
+- `[RSA exponent]`
+- `[RSA modulus]`
+  - these two are used together to encrypt passwords, unique to each server.
     they must be converted to a hexadecimal representation
     [0-padded to a multiple of eight characters](https://github.com/kokke/tiny-bignum-c/issues/14)
-
 
 for the desktop version, these are passed as command-line arguments. on the
 web they're passed in the URL hash separated by commas
@@ -354,17 +359,18 @@ bank_maintain_slot = 1
 
 ## libraries used
 
-* [glew](http://glew.sourceforge.net/) for runtime opengl extension loading
-* [ini](https://github.com/rxi/ini) for parsing *options.ini*
-* [isaac](https://burtleburtle.net/bob/rand/isaacafa.html) for authentic packet
-decoding
-* [libsdl2](https://www.libsdl.org/index.php) for input/output on desktop
-* [micro-bunzip](https://landley.net/code/) for decompressing cache archives
-* [tiny-bignum-c](https://github.com/kokke/tiny-bignum-c) for RSA encryption on
-login/registration
+- [glew](http://glew.sourceforge.net/) for runtime opengl extension loading
+- [ini](https://github.com/rxi/ini) for parsing _options.ini_
+- [isaac](https://burtleburtle.net/bob/rand/isaacafa.html) for authentic packet
+  decoding
+- [libsdl2](https://www.libsdl.org/index.php) for input/output on desktop
+- [micro-bunzip](https://landley.net/code/) for decompressing cache archives
+- [tiny-bignum-c](https://github.com/kokke/tiny-bignum-c) for RSA encryption on
+  login/registration
 
 ## license
-Copyright 2024  2003Scape Team
+
+Copyright 2024 2003Scape Team
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU Affero General Public License as published by the

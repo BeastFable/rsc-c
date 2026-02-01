@@ -140,11 +140,9 @@ on windows 95 might need to install ws2setup.exe, 401comupd.exe, and find a copy
 ## build (web)
 
 Install & activate the
-[emscripten emsdk](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended) using the `install latest` and active latest` commands.
+[emscripten emsdk](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended).
 
-If you are using a Mac to install Emscripten, prefix the `install` and `activate` commands with `./emsdk` while that directory is checked out.
-
-    $ make -f Makefile.emscripten
+    $ emmake -f Makefile.emscripten
     $ python3 -m http.server 1337 # @ http://localhost:1337/mudclient.html
 
 host `mudclient.{html,data,js,wasm}` and `./cache/` directory.

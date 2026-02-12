@@ -69,27 +69,12 @@ distribute with `./cache` directory.
 
 ## build (windows)
 
-1. Make sure virtualization is enabled on your machine by doing the following:
-   1. Enable virtualization in the BIOS of your motherboard.
-   1. Make sure **Virtual Machine Platform** and **Windows Hypervisor Platform** are both turned on in Windows Features.
-   1. Open terminal or command prompt as an administrator and run `bcdedit /set hypervisorlaunchtype auto`.
-2. Get the Ubuntu app from the [Windows Store](https://apps.microsoft.com/detail/9pdxgncfsczv?hl=en-US&gl=US).
-3. Open the Ubuntu app. A terminal should appear.
-4. Run the following commands within the Ubuntu terminal:
+install [mingw-w64](https://packages.debian.org/sid/mingw-w64).
 
-   ```
-   sudo apt update
-   sudo apt install mingw-w64 wine libsdl2-image-dev libglew-dev libgl-dev
-   sudo apt install -y libssl-dev pkg-config
-   sudo apt install --reinstall build-essential
+use [wine](https://packages.debian.org/sid/wine) to test locally.
 
-   // It is recommended to copy the rsc-c directory to your ubuntu box:
-   cp -r /mnt/c/path/to/rsc-c ~/
-   cd ~/rsc-c
-
-   make // This builds the RSC-C client
-   ./mudclient // This runs the RSC-C client. (use `wine ./mudclient` to test locally)
-   ```
+    $ make -f Makefile.windows
+    $ wine mudclient.exe
 
 distribute with `./SDL2.dll`, `./glew32.dll` and `./cache` directory.
 

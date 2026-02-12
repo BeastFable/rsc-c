@@ -143,9 +143,18 @@ Install & activate the
 [emscripten emsdk](https://emscripten.org/docs/getting_started/downloads.html#installation-instructions-using-the-emsdk-recommended).
 
     $ make -f Makefile.emscripten // May need to use `emmake` instead of `make` on Windows
-    $ python3 -m http.server 1337 # @ http://localhost:1337/mudclient.html
+    $ python3 -m http.server 1337
 
-host `mudclient.{html,data,js,wasm}` and `./cache/` directory.
+You can now test the web client by visiting http://localhost:1337/mudclient.html. Incognito mode is recommended as you change the source and build new versions.
+
+To host it, place the following files and folders in a publicly-accessible location on your website:
+
+- `/cache` folder
+- `mudclient.html`
+- `mudclient.js`
+- `mudclient.wasm`
+- `mudclient.wasm.js`
+- `mudclient.data`
 
 ## build (android)
 
